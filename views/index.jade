@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    h1= "前端打包页面"
+    form(name="add-estimation", method="post", action="build")
+        p.input
+            span.label 打包trunk版本号
+            input(type="text", name="trunkVersion")
+        p.input
+            span.label 生成tag号
+            input(type="text", name="tagVersion")
+        p.input
+            span.label tag注释
+            input(type="text", name="tagRefs")
+        p.input
+            span.label svn账号
+            input(type="text", name="svnUserName")
+        p.input
+            span.label svn密码
+            input(type="text", name="svnPassWord")
+        div.actions
+            input(type="submit", value="build")
