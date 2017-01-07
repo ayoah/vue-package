@@ -62,7 +62,7 @@ router.post('/build', function(req, res, next) {
                 res.write('<p style="color:green">=========svn 版本r' + version + '检出成功=========</p>');
 
                 //npm安装依赖
-                var npmInstall = child_process.exec('cd ' + currentVPath + ' && npm install');
+                var npmInstall = child_process.exec('ln -s /opt/vue/node_modules ' + currentVPath);
                 npmInstall.stdout.on('data', function (data) {
                     res.write(data.replace(/\n/g, "<br />") + '<br>', 'utf-8');
                 });
@@ -134,4 +134,3 @@ router.post('/build', function(req, res, next) {
 
 
 module.exports = router;
-
